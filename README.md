@@ -1,2 +1,778 @@
-# SpotlixHQ-
-Official site of ѕρσтℓιgнт ѕqυα∂
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>SpotlixHQ – Creators, Thinkers, Collaborators</title>
+
+  <!-- SEO meta -->
+  <meta name="description" content="SpotlixHQ is a vibrant community for creators, thinkers, and innovators to collaborate, share ideas, and grow together." />
+  <meta name="keywords" content="SpotlixHQ, creators community, collaboration, innovation, content creators, creative community" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="SpotlixHQ – Creators, Thinkers, Collaborators" />
+  <meta property="og:description" content="Join SpotlixHQ, a community built for creators, thinkers, and innovators to connect, share, and grow." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://spotlixhq.com/" />
+  <meta property="og:image" content="https://spotlixhq.com/og-image.png" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SpotlixHQ – Creators, Thinkers, Collaborators" />
+  <meta name="twitter:description" content="A premium community hub for modern creators, thinkers, and innovators." />
+  <meta name="twitter:image" content="https://spotlixhq.com/og-image.png" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "SpotlixHQ",
+    "url": "https://spotlixhq.com",
+    "description": "Community for creators, thinkers, and innovators",
+    "sameAs": [
+      "https://x.com/SpotlixHQ",
+      "https://www.instagram.com/spotlixhq",
+      "https://www.linkedin.com/company/spotlixhq"
+    ]
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <style>
+    /* Reset and base styles */
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; scroll-behavior:smooth; }
+    body {
+      background: linear-gradient(-45deg,#0f0c29,#302b63,#24243e,#1f1c2c);
+      background-size: 400% 400%;
+      animation: gradientBG 20s ease infinite;
+      color: #fff;
+      overflow-x: hidden;
+      min-height: 100vh;
+      position: relative;
+    }
+    @keyframes gradientBG {
+      0% {background-position:0% 50%;}
+      50% {background-position:100% 50%;}
+      100% {background-position:0% 50%;}
+    }
+
+    /* Preloader */
+    .preloader {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: #0f0c29; z-index: 9999;
+      display: flex; justify-content: center; align-items: center;
+      transition: opacity 0.5s ease-out;
+    }
+    .preloader.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .loader {
+      width: 50px; height: 50px;
+      border: 3px solid rgba(0,255,247,0.3);
+      border-top: 3px solid #00fff7;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% {transform: rotate(0deg);}
+      100% {transform: rotate(360deg);}
+    }
+
+    /* Particle animation */
+    .particle {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      background: #00fff7;
+      border-radius: 50%;
+      opacity: 0.6;
+      animation: float 12s linear infinite;
+    }
+    @keyframes float {
+      0% {transform: translateY(0) translateX(0);}
+      50% {transform: translateY(-100px) translateX(50px);}
+      100% {transform: translateY(0) translateX(0);}
+    }
+
+    /* Floating neon shapes */
+    .neon-shape {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.15;
+      z-index: 0;
+      filter: blur(60px);
+      animation: floatShape 20s linear infinite;
+    }
+    @keyframes floatShape {
+      0% {transform: translateY(0) translateX(0) rotate(0deg);}
+      50% {transform: translateY(-50px) translateX(50px) rotate(180deg);}
+      100% {transform: translateY(0) translateX(0) rotate(360deg);}
+    }
+
+    /* Header and navigation */
+    header {
+      position: fixed;
+      top: 0; width: 100%;
+      z-index: 10;
+    }
+    nav[role="navigation"] {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      backdrop-filter: blur(10px);
+      flex-wrap: wrap;
+      flex-wrap: wrap;
+      background: rgba(0,0,0,0.3);
+    }
+    .nav-logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #00fff7;
+      text-shadow: 0 0 10px #00fff7, 0 0 20px #00fff7;
+      animation: pulse 2s infinite alternate;
+      margin-right: auto;
+    }
+    @keyframes pulse {
+      0% {text-shadow:0 0 10px #00fff7,0 0 20px #00fff7;}
+      100% {text-shadow:0 0 25px #00fff7,0 0 50px #00fff7;}
+    }
+    nav a {
+      color: #00fff7;
+      text-decoration: none;
+      font-weight: 600;
+      position: relative;
+      padding-bottom: 5px;
+      transition: 0.3s;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: 0;
+      width: 0;
+      height: 2px;
+      background: #00fff7;
+      box-shadow: 0 0 10px #00fff7, 0 0 20px #00fff7;
+      transition: width 0.3s ease;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+    nav a:hover {
+      text-shadow: 0 0 10px #00fff7, 0 0 20px #00fff7;
+      transform: scale(1.1);
+    }
+
+    /* Social icons in nav */
+    .nav-social-link {
+      color: #00fff7;
+      padding: 0 0.3rem;
+    }
+    .nav-social-link i {
+      font-size: 1.1rem;
+      transition: color 0.3s;
+    }
+    .nav-social-link:hover i {
+      color: #ff00ff;
+      text-shadow: 0 0 10px #ff00ff;
+    }
+
+    /* Language selector */
+    #language-select {
+      background: rgba(0,0,0,0.7);
+      border: 1px solid #00fff7;
+      color: #00fff7;
+      padding: 0.3rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    /* Main content spacing */
+    main {
+      padding-top: 4.5rem;
+    }
+
+    /* Sections */
+    section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s ease-out;
+    }
+    section.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Content containers */
+    article.container {
+      max-width: 700px;
+      width: 90%;
+      background: rgba(0,0,0,0.7);
+      border-radius: 25px;
+      padding: 3rem 2rem;
+      box-shadow: 0 0 50px rgba(0, 255, 255, 0.6);
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Logo and text styles */
+    .logo {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #00fff7;
+      text-shadow: 0 0 10px #00fff7,0 0 20px #00fff7,0 0 30px #00fff7,0 0 40px #00fff7;
+      margin-bottom: 1rem;
+    }
+    .description {
+      font-size: 1rem;
+      color: #fff;
+      opacity: 0.85;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      transition: 0.3s;
+    }
+    .description:hover {
+      color: #00fff7;
+      text-shadow: 0 0 10px #00fff7,0 0 20px #00fff7;
+      transform: scale(1.02);
+    }
+
+    /* Typing animation */
+    .typing {
+      color: #00fff7;
+      font-weight: 600;
+      font-size: 1.2rem;
+      height: 30px;
+      overflow: hidden;
+      border-right: 2px solid #00fff7;
+      white-space: nowrap;
+      animation: blink 0.7s step-end infinite;
+      font-variant-east-asian: full-width;
+    }
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    /* Cards */
+    .cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      perspective: 1000px;
+      margin-top: 1rem;
+    }
+    .card {
+      background: rgba(0, 255, 255, 0.05);
+      border: 1px solid #00fff7;
+      border-radius: 15px;
+      padding: 1rem 1.5rem;
+      text-align: left;
+      font-weight: 600;
+      color: #00fff7;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: 0.4s;
+      box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+      transform-style: preserve-3d;
+    }
+    .card:hover {
+      background: rgba(0, 255, 255, 0.15);
+      box-shadow: 0 0 25px #00fff7, 0 0 50px #00fff7;
+      transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+    }
+    .card i {
+      min-width: 25px;
+      font-size: 1.2rem;
+    }
+
+    /* Team */
+    .team {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+    .member {
+      background: rgba(0, 255, 255, 0.05);
+      border: 1px solid #00fff7;
+      border-radius: 15px;
+      padding: 1rem 1.5rem;
+      text-align: center;
+      width: 150px;
+      box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+      transition: 0.3s;
+      cursor: pointer;
+      position: relative;
+      user-select: none;
+    }
+    .member:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #00fff7, 0 0 50px #00fff7;
+    }
+    .bio {
+      display: none;
+      font-size: 0.85rem;
+      color: #00fff7;
+      margin-top: 0.5rem;
+    }
+    .show-bio {
+      display: block;
+    }
+
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 25px;
+      height: 40px;
+      border: 2px solid #00fff7;
+      border-radius: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding-top: 5px;
+    }
+    .scroll-indicator::after {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: #00fff7;
+      border-radius: 50%;
+      animation: scrollBounce 1.5s infinite;
+    }
+    @keyframes scrollBounce {
+      0% {transform: translateY(0);}
+      50% {transform: translateY(20px);}
+      100% {transform: translateY(0);}
+    }
+
+    /* Scroll to top button */
+    .scroll-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: rgba(0, 255, 247, 0.2);
+      border: 2px solid #00fff7;
+      border-radius: 50%;
+      color: #00fff7;
+      font-size: 1.2rem;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      user-select: none;
+    }
+    .scroll-top.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .scroll-top:hover {
+      background: #00fff7;
+      color: #0f0c29;
+      box-shadow: 0 0 20px #00fff7;
+      transform: translateY(-5px) scale(1.1);
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 2rem;
+      text-align: center;
+      color: #00fff7;
+      opacity: 0.8;
+      padding: 1rem;
+      font-size: 0.9rem;
+      border-top: 1px solid #00fff7;
+      user-select: none;
+    }
+
+    /* RTL helper for Arabic */
+    .rtl {
+      direction: rtl;
+      text-align: right;
+    }
+
+    /* Very small screens: reduce visual load */
+    @media(max-width: 480px) {
+      .particle:nth-child(n+3) { display: none; }
+      .neon-shape { opacity: 0.1; filter: blur(40px); }
+      .scroll-top { bottom: 20px; right: 20px; width: 45px; height: 45px; }
+    }
+
+    @media(min-width: 600px) {
+      .cards {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .card {
+        width: 45%;
+      }
+      .team .member {
+        width: 200px;
+      }
+    }
+
+    @media(min-width: 900px) {
+      .card {
+        width: 40%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Preloader -->
+  <div class="preloader" id="preloader" aria-label="Loading content">
+    <div class="loader"></div>
+  </div>
+
+  <!-- Particles -->
+  <div class="particle" style="top: 10%; left: 20%; animation-duration: 12s;"></div>
+  <div class="particle" style="top: 50%; left: 80%; animation-duration: 15s;"></div>
+  <div class="particle" style="top: 70%; left: 40%; animation-duration: 18s;"></div>
+  <div class="particle" style="top: 20%; left: 60%; animation-duration: 20s;"></div>
+  <div class="particle" style="top: 80%; left: 10%; animation-duration: 22s;"></div>
+  <div class="particle" style="top: 30%; left: 30%; animation-duration: 19s;"></div>
+
+  <!-- Scroll to top button -->
+  <button class="scroll-top" id="scrollTop" aria-label="Back to top" title="Back to top">
+    <i class="fas fa-chevron-up" aria-hidden="true"></i>
+  </button>
+
+  <header>
+    <nav aria-label="Main navigation" role="navigation">
+      <div class="nav-logo" tabindex="0">SpotlixHQ</div>
+
+      <a href="#home" id="nav-home">Home</a>
+      <a href="#about" id="nav-about">About</a>
+      <a href="#community" id="nav-community">Community</a>
+      <a href="#team" id="nav-team">Team</a>
+
+      <!-- Social icons -->
+      <a href="https://x.com/SpotlixHQ" class="nav-social-link" target="_blank" rel="noopener" aria-label="SpotlixHQ on X (opens in new tab)">
+        <i class="fa fa-twitter" aria-hidden="true"></i>
+      </a>
+      <a href="https://www.linkedin.com/company/spotlixhq" class="nav-social-link" target="_blank" rel="noopener" aria-label="SpotlixHQ on LinkedIn (opens in new tab)">
+        <i class="fa fa-linkedin" aria-hidden="true"></i>
+      </a>
+
+      <select id="language-select" aria-label="Select Language" title="Select Language">
+        <option value="en">English</option>
+        <option value="hi">हिंदी</option>
+        <option value="de">Deutsch</option>
+        <option value="ja">日本語</option>
+        <option value="es">Español</option>
+        <option value="fr">Français</option>
+        <option value="ar">العربية</option>
+        <option value="id">Bahasa Indonesia</option>
+        <option value="bn">বাংলা</option>
+        <option value="zh">中文</option>
+      </select>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home">
+      <div class="neon-shape" style="width: 200px; height: 200px; background: #00fff7; top: 10%; left: 5%; animation-duration: 25s;"></div>
+      <div class="neon-shape" style="width: 300px; height: 300px; background: #ff00ff; top: 40%; left: 60%; animation-duration: 35s;"></div>
+      <article class="container">
+        <h1 class="logo">SpotlixHQ</h1>
+        <p class="typing" id="typed" aria-label="SpotlixHQ tagline"></p>
+        <div class="scroll-indicator" aria-hidden="true"></div>
+      </article>
+    </section>
+
+    <section id="about">
+      <div class="neon-shape" style="width: 150px; height: 150px; background: #00ff00; top: 20%; left: 70%; animation-duration: 30s;"></div>
+      <div class="neon-shape" style="width: 250px; height: 250px; background: #ff9900; top: 60%; left: 10%; animation-duration: 40s;"></div>
+      <article class="container">
+        <h2 id="about-title" style="color:#00fff7; margin-bottom:1rem;">About SpotlixHQ</h2>
+        <p id="about-desc" class="description">
+          SpotlixHQ is a community for creators, thinkers, and innovators to collaborate, share ideas, and grow together.
+        </p>
+      </article>
+    </section>
+
+    <section id="community">
+      <div class="neon-shape" style="width: 200px; height: 200px; background: #00ffff; top: 15%; left: 15%; animation-duration: 28s;"></div>
+      <div class="neon-shape" style="width: 250px; height: 250px; background: #ff00aa; top: 60%; left: 70%; animation-duration: 32s;"></div>
+      <article class="container">
+        <h2 id="community-title" style="color:#00fff7; margin-bottom:1rem;">Connect With Us</h2>
+        <div class="cards">
+          <a href="https://www.instagram.com/spotlixhq?igsh=anVtYmNqcGZ5aGFo" class="card" target="_blank" rel="noopener">
+            <i class="fab fa-instagram"></i> Instagram – Share your creativity & updates with our squad.
+          </a>
+          <a href="https://t.me/SpotlixHQ" class="card" target="_blank" rel="noopener">
+            <i class="fab fa-telegram"></i> Telegram – Join live discussions and community announcements.
+          </a>
+          <a href="https://www.youtube.com/@SpotlixHQ" class="card" target="_blank" rel="noopener">
+            <i class="fab fa-youtube"></i> YouTube – Watch, learn, and grow with our exclusive content.
+          </a>
+          <a href="mailto:spotlixhq@gmail.com" class="card">
+            <i class="fas fa-envelope"></i> Email – Reach out directly to connect or collaborate.
+          </a>
+        </div>
+      </article>
+    </section>
+
+    <section id="team">
+      <div class="neon-shape" style="width: 200px; height: 200px; background: #ff00ff; top: 10%; left: 20%; animation-duration: 30s;"></div>
+      <div class="neon-shape" style="width: 250px; height: 250px; background: #00ff99; top: 50%; left: 60%; animation-duration: 35s;"></div>
+      <article class="container">
+        <h2 id="team-title" style="color:#00fff7; margin-bottom:1rem;">Our Team</h2>
+        <div class="team">
+          <div class="member" tabindex="0" role="button" aria-pressed="false" onclick="toggleBio(this)" onkeypress="if(event.key==='Enter'){toggleBio(this);}">
+            <strong>Suryansh</strong><br />Founder
+            <div class="bio">
+              Love creativity<br />
+              <a href="https://www.instagram.com/suryansh_y09?igsh=MXIzNGhmMGtlZjY4eQ==" target="_blank" rel="noopener">Instagram</a> |
+              <a href="mailto:suryanshy302@gmail.com">Email</a>
+            </div>
+          </div>
+          <div class="member" tabindex="0" role="button" aria-pressed="false" onclick="toggleBio(this)" onkeypress="if(event.key==='Enter'){toggleBio(this);}">
+            <strong>Anup</strong><br />Team Member
+            <div class="bio">
+              Not a backup plan. I’m the main character.<br />
+              <a href="https://www.instagram.com/anup_.45_45?igsh=cDhuY3plOGVxaXhw" target="_blank" rel="noopener">Instagram</a> |
+              <a href="mailto:gurub0357@gmail.com">Email</a>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    Proudly Indian Made 🌟 | © 2025 SpotlixHQ. All rights reserved.
+  </footer>
+
+  <script>
+    // Preloader fade out on window load
+    window.addEventListener('load', () => {
+      const preloader = document.getElementById('preloader');
+      if (preloader) preloader.classList.add('hidden');
+    });
+
+    // Scroll-trigger animations for sections
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('active');
+      });
+    }, { threshold: 0.2 });
+    sections.forEach(section => observer.observe(section));
+
+    // Scroll to top button logic
+    const scrollTopBtn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        scrollTopBtn.classList.add('show');
+      } else {
+        scrollTopBtn.classList.remove('show');
+      }
+    });
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Typing animation with phrases
+    const phrases = [
+      "Creators. Thinkers. Collaborators.",
+      "Where Ideas Meet Action.",
+      "Grow, Share, Connect.",
+      "Made for community-first creators.",
+      "Your next idea starts here."
+    ];
+    let i = 0, j = 0, currentPhrase = '', isDeleting = false;
+    const typedElement = document.getElementById('typed');
+    function type() {
+      if (i >= phrases.length) i = 0;
+      currentPhrase = phrases[i];
+      if (!isDeleting) {
+        typedElement.textContent = currentPhrase.substring(0, j + 1);
+        j++;
+        if (j === currentPhrase.length) {
+          isDeleting = true;
+          setTimeout(type, 1000);
+          return;
+        }
+      } else {
+        typedElement.textContent = currentPhrase.substring(0, j - 1);
+        j--;
+        if (j === 0) {
+          isDeleting = false;
+          i++;
+        }
+      }
+      setTimeout(type, isDeleting ? 50 : 100);
+    }
+    if (typedElement) type();
+
+    // Toggle biography display for team members
+    function toggleBio(member) {
+      const bio = member.querySelector('.bio');
+      const expanded = bio.classList.toggle('show-bio');
+      member.setAttribute('aria-pressed', expanded);
+    }
+
+    // Multilingual support
+    const content = {
+      en: {
+        navHome: "Home", navAbout: "About", navCommunity: "Community", navTeam: "Team",
+        aboutTitle: "About SpotlixHQ",
+        aboutDesc: "SpotlixHQ is a community for creators, thinkers, and innovators to collaborate, share ideas, and grow together.",
+        communityTitle: "Connect With Us",
+        teamTitle: "Our Team",
+        rtl: false
+      },
+      hi: {
+        navHome: "होम", navAbout: "हमारे बारे में", navCommunity: "समुदाय", navTeam: "टीम",
+        aboutTitle: "SpotlixHQ के बारे में",
+        aboutDesc: "SpotlixHQ रचनाकारों, विचारकों और नवप्रवर्तकों के लिए एक समुदाय है जहाँ वे सहयोग कर सकते हैं, विचार साझा कर सकते हैं और साथ में आगे बढ़ सकते हैं।",
+        communityTitle: "हमसे जुड़ें",
+        teamTitle: "हमारी टीम",
+        rtl: false
+      },
+      de: {
+        navHome: "Startseite", navAbout: "Über uns", navCommunity: "Community", navTeam: "Team",
+        aboutTitle: "Über SpotlixHQ",
+        aboutDesc: "SpotlixHQ ist eine Community für Kreative, Denker und Innovatoren, um zusammenzuarbeiten, Ideen zu teilen und gemeinsam zu wachsen.",
+        communityTitle: "Vernetze dich mit uns",
+        teamTitle: "Unser Team",
+        rtl: false
+      },
+      ja: {
+        navHome: "ホーム", navAbout: "概要", navCommunity: "コミュニティ", navTeam: "チーム",
+        aboutTitle: "SpotlixHQ について",
+        aboutDesc: "SpotlixHQ は、クリエイターや思考家、イノベーターが協力し、アイデアを共有し、ともに成長するためのコミュニティです。",
+        communityTitle: "私たちとつながる",
+        teamTitle: "チーム紹介",
+        rtl: false
+      },
+      es: {
+        navHome: "Inicio", navAbout: "Acerca de", navCommunity: "Comunidad", navTeam: "Equipo",
+        aboutTitle: "Acerca de SpotlixHQ",
+        aboutDesc: "SpotlixHQ es una comunidad para creadores, pensadores e innovadores donde pueden colaborar, compartir ideas y crecer juntos.",
+        communityTitle: "Conéctate con nosotros",
+        teamTitle: "Nuestro equipo",
+        rtl: false
+      },
+      fr: {
+        navHome: "Accueil", navAbout: "À propos", navCommunity: "Communauté", navTeam: "Équipe",
+        aboutTitle: "À propos de SpotlixHQ",
+        aboutDesc: "SpotlixHQ est une communauté pour les créateurs, penseurs et innovateurs afin de collaborer, partager des idées et grandir ensemble.",
+        communityTitle: "Connectez-vous avec nous",
+        teamTitle: "Notre équipe",
+        rtl: false
+      },
+      ar: {
+        navHome: "الرئيسية", navAbout: "من نحن", navCommunity: "المجتمع", navTeam: "الفريق",
+        aboutTitle: "نبذة عن SpotlixHQ",
+        aboutDesc: "SpotlixHQ هو مجتمع للمبدعين والمفكرين والمبتكرين للتعاون وتبادل الأفكار والنمو معًا.",
+        communityTitle: "تواصل معنا",
+        teamTitle: "فريقنا",
+        rtl: true
+      },
+      id: {
+        navHome: "Beranda", navAbout: "Tentang", navCommunity: "Komunitas", navTeam: "Tim",
+        aboutTitle: "Tentang SpotlixHQ",
+        aboutDesc: "SpotlixHQ adalah komunitas bagi kreator, pemikir, dan inovator untuk berkolaborasi, berbagi ide, dan tumbuh bersama.",
+        communityTitle: "Terhubung dengan kami",
+        teamTitle: "Tim kami",
+        rtl: false
+      },
+      bn: {
+        navHome: "হোম", navAbout: "আমাদের সম্পর্কে", navCommunity: "কমিউনিটি", navTeam: "টিম",
+        aboutTitle: "SpotlixHQ সম্পর্কে",
+        aboutDesc: "SpotlixHQ হল সৃষ্টিশীল ব্যক্তি, চিন্তাবিদ এবং উদ্ভাবকদের জন্য একটি কমিউনিটি যেখানে তারা একসাথে কাজ করতে, আইডিয়া শেয়ার করতে এবং একসাথে বেড়ে উঠতে পারে।",
+        communityTitle: "আমাদের সাথে যুক্ত হন",
+        teamTitle: "আমাদের দল",
+        rtl: false
+      },
+      zh: {
+        navHome: "首页", navAbout: "关于", navCommunity: "社区", navTeam: "团队",
+        aboutTitle: "关于 SpotlixHQ",
+        aboutDesc: "SpotlixHQ 是一个为创作者、思想者和创新者而建立的社区，在这里可以协作、分享想法并共同成长。",
+        communityTitle: "与我们联系",
+        teamTitle: "我们的团队",
+        rtl: false
+      }
+    };
+
+    const langSelect = document.getElementById('language-select');
+    const navHome = document.getElementById('nav-home');
+    const navAbout = document.getElementById('nav-about');
+    const navCommunity = document.getElementById('nav-community');
+    const navTeam = document.getElementById('nav-team');
+    const aboutTitle = document.getElementById('about-title');
+    const aboutDesc = document.getElementById('about-desc');
+    const communityTitle = document.getElementById('community-title');
+    const teamTitle = document.getElementById('team-title');
+
+    function applyLanguage(lang) {
+      if (!content[lang]) return;
+      const t = content[lang];
+
+      navHome.textContent = t.navHome;
+      navAbout.textContent = t.navAbout;
+      navCommunity.textContent = t.navCommunity;
+      navTeam.textContent = t.navTeam;
+
+      aboutTitle.textContent = t.aboutTitle;
+      aboutDesc.textContent = t.aboutDesc;
+      communityTitle.textContent = t.communityTitle;
+      teamTitle.textContent = t.teamTitle;
+
+      // Global dir/lang for RTL support
+      const htmlEl = document.documentElement;
+      htmlEl.lang = lang;
+      htmlEl.dir = t.rtl ? "rtl" : "ltr";
+
+      // Adjust accordant sections for RTL direction
+      const rtlSections = ["about", "community", "team"];
+      rtlSections.forEach(id => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        if (t.rtl) el.classList.add("rtl");
+        else el.classList.remove("rtl");
+      });
+    }
+
+    langSelect.addEventListener('change', () => {
+      applyLanguage(langSelect.value);
+    });
+
+    // Initialize language on page load
+    applyLanguage(langSelect.value || "en");
+  </script>
+</body>
+</html>
